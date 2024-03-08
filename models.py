@@ -17,7 +17,7 @@ class Task:
     
     def display_task(self):
         if self.status == 'done':
-            return (f"[X]\t-{self.task_name}")
+            return (f"=====\t[X]\t-{self.task_name} | id: {self.id}\t=====\n{self.description}\n\n")
         elif self.status == 'not done':
             return(f"[ ]\t-{self.task_name}\n{self.description}")
 
@@ -25,7 +25,7 @@ class User:
     """Represents a user of the task manager"""
     id_counter = 1
 
-    def __init__(self, username, password)
+    def __init__(self, username, password):
         self.id = Task.id_counter
         Task.id_counter+=1
         self.username = username
