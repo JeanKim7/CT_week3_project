@@ -2,12 +2,13 @@ class Task:
     """Represents a task in the to-do list"""
     id_counter = 1
     
-    def __init__(self, task_name, description, status):
+    def __init__(self, task_name, description, author):
         self.id = Task.id_counter
         Task.id_counter += 1
         self.task_name = task_name
         self.description = description
-        self.status = status
+        self.status = "not done"
+        self.author = author
     
     def __str__(self):
         return self.task_name
@@ -16,8 +17,9 @@ class Task:
         return f"<{self.task_name} | {self.status}>"
     
     def display_task(self):
+
         if self.status == 'done':
-            return (f"=====\t[X]\t-{self.task_name} | id: {self.id}\t=====\n{self.description}\n\n")
+            return (f"=====\t[X]\t-{self.task_name} | id: {self.id}\t=====\n\tby:{self.author}\n\n{self.description}\n\n")
         elif self.status == 'not done':
             return(f"[ ]\t-{self.task_name}\n{self.description}")
 
