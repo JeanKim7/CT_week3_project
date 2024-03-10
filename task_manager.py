@@ -29,7 +29,7 @@ class TaskManager:
 
     def log_out(self):
         double_check = input("Are you sure you would like to log out (y/n)?" )
-        while double_check.lower != 'y' or double_check.lower != 'n':
+        while double_check.lower() not in ['y', 'n']:
             double_check = input("Please enter 'y' or 'n' only. Are you sure you want to log out? ")
         if double_check.lower() == 'y':
             self.current_user = None
@@ -66,7 +66,7 @@ class TaskManager:
     def view_single_task(self):
         id_input = input("What is the ID of the post you would like to see? ")
         for task in self.tasks:
-            if int(task.id) == id_input:
+            if task.id == int(id_input):
                 if task.author == self.current_user:
                     task.display_task()
                 else:
@@ -77,7 +77,7 @@ class TaskManager:
     def edit_task(self):
         id_input2 = input("What is the ID of the post you would like to edit? ")
         for task in self.tasks:
-            if task.id == id_input2:
+            if task.id == int(id_input2):
                 if task.author == self.current_user:
                     new_name = input("If you would like to chnage the name of the task, enter it here. Or enter 'skip': ")
                     if new_name.lower() != 'skip':
@@ -96,7 +96,7 @@ class TaskManager:
     def delete_task(self):
         id_input3 = input('What is the id of the task you would like to delete? ')
         for task in self.tasks:
-            if task.id == id_input3:
+            if task.id == int(id_input3):
                 if task.author == self.current_user:
                     confirm = input("Are you sure you would like to delete this post (y/n)? ")
                     if confirm.lower() == 'y':

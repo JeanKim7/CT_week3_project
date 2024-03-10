@@ -14,14 +14,14 @@ class Task:
         return self.task_name
 
     def __repr__(self):
-        return f"<{self.task_name} | {self.status}>"
+        return f"< id: {self.id} | {self.task_name} >"
     
     def display_task(self):
 
         if self.status == 'done':
-            return (f"=====\t[X]\t-{self.task_name} | id: {self.id}\t=====\n\tby:{self.author}\n\n{self.description}\n\n")
+            print(f"X] {self.task_name} | id: {self.id}\n\n{self.description}\n\n")
         elif self.status == 'not done':
-            return(f"[ ]\t-{self.task_name}\n{self.description}")
+            print(f"[ ] {self.task_name} | id: {self.id}\n\n{self.description}\n\n")
 
 class User:
     """Represents a user of the task manager"""
@@ -37,7 +37,7 @@ class User:
         return self.username
 
     def __repr__(self):
-        return f"<{self.id} | {self.username}"
+        return f"< {self.id} | {self.username} >"
     
     def check_password(self, pw_guess):
         return self.__password == pw_guess
