@@ -100,8 +100,10 @@ class TaskManager:
                 if task.author == self.current_user:
                     confirm = input("Are you sure you would like to delete this post (y/n)? ")
                     if confirm.lower() == 'y':
-                        self.tasks.pop(task)
-                    else:
+                        self.tasks.remove(task)
+                        print("The task has been removed.")
+                        break
+                    else:    
                         print("The task has not been removed.")
                 else:
                     print("You are not authorized to delete this task.")

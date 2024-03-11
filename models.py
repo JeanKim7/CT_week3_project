@@ -19,9 +19,9 @@ class Task:
     def display_task(self):
 
         if self.status == 'done':
-            print(f"X] {self.task_name} | id: {self.id}\n\n{self.description}\n\n")
+            print(f"\n[X] {self.task_name} | id: {self.id}\n    =>{self.description}\n\n")
         elif self.status == 'not done':
-            print(f"[ ] {self.task_name} | id: {self.id}\n\n{self.description}\n\n")
+            print(f"\n[ ] {self.task_name} | id: {self.id}\n    =>{self.description}\n\n")
 
 class User:
     """Represents a user of the task manager"""
